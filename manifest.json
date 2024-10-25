@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "DeepEE",
+  "version": "7.0",
+  "description": "深入讲解网页中的英语词组和句子",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "css": ["styles.css"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DeepEE"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [{
+    "resources": ["content.js", "styles.css"],
+    "matches": ["<all_urls>"]
+  }]
+}
